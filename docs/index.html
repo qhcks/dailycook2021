@@ -15,15 +15,52 @@
         </header>
         <main>
             <div class="mainCont">
-                <h1 id="datetime" class="content">오늘은 언제</h1>
-                <hr/>
-                <p id="notice" class="content">공지</p>
-                <hr/>
-                <form action="" method="post">
+                <h1 id="datetime" class="content">n월 n일 n요일 오늘반찬</h1>
+                <hr>
+                <h2 id="notice" class="content">공지</h2>
+                <div id="noticeCont">
+                    여기에는 공지 내용이 들어갑니다 <br> 여러줄이 들어가도 <br> 들여쓰가가 되나? <br> 되구나 돼구나?
+                </div>
+                <br><hr>
+                <form action="process.php" method="post">
+                    <h2>주문 정보</h2>
                     <div class="content bio">
-                        <input type="text" name="" id="">
+                        <ul>
+                            <li><input type="text" name="cName" id="cName" placeholder="이름" required></li>
+                            <li><input type="tel" id="cPhone" name="cPhone" placeholder="전화번호" required></li>
+                            <li>
+                                <div class="cBioCont">
+                                    <input type="radio" id="visit" name="pickUp" value="visit" onchange="pickUpCheck();" checked>
+                                    <label for="visit">방문</label>
+                                    <input type="radio" id="deliver" name="pickUp" value="deliver" onchange="pickUpCheck();">
+                                    <label for="deliver">배달</label>
+                                </div>
+                                <div class="cAddressCont hide">
+                                    <input type="text" id="cPostcode" placeholder="우편번호">
+                                    <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+                                    <input type="text" id="cAddress" placeholder="주소" style="width: 647px;"><br>
+                                    <input type="text" id="cDetailAddress" placeholder="상세주소">
+                                    <input type="text" id="cExtraAddress" placeholder="참고항목">
+                                    <!--다음 API 예제에서 긁어옴  https://postcode.map.daum.net/guide  -->
+                                    <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+                                        <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+                                    </div>
+                                    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                                    <script src="api-script.js"></script>
+                                </div>
+                            </li>
+                            <li> 
+                                <div>
+                                    결제방법 : <select name="payment" id="payment">
+                                        <option value="acc_trans">계좌이체</option>
+                                        <option value="cash">만나서 현금결제</option>
+                                        <option value="creditcard">카드결제</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <hr/>
+                    <br><hr>
                     <div class="content itemCont">
                         <table>
                             <thead>
@@ -38,13 +75,16 @@
                             <tbody id="item"></tbody>
                         </table>
                     </div>
-                    <hr/>
+                    <hr>
+                    <div>
+                        <h4>전체가격: <span id="total">0</span> 원</h4> 
+                    </div>
+                    <hr>
                     <div class="btnCont">
                         <button type="submit" class = "btn">작성 완료</button>
                     </div>
-                    
                 </form>
-                
+                <br>
             </div>
         </main>
         <footer></footer>

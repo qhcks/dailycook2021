@@ -4,12 +4,11 @@ html {
 
 * {
     margin: 0px;
-    font-size: 5rem;
+    font-size: 3rem;
 }
 
 .container {
     width: 100vw;
-    height: 100vh;
 }
 
 header {
@@ -43,8 +42,11 @@ div.logo {
 
 .mainCont {
     width: 96%;
-    height: 100%;
     margin: 0px 2% 0px;
+}
+
+#datetime {
+    font-size: 5rem;
 }
 
 #notice {
@@ -56,7 +58,7 @@ div.logo {
     margin-top: 2%;
 }
 
-#item td, thead th{
+#item td, thead th,  form div span{
     font-size: 2.2rem;
     text-align: center;
 }
@@ -82,4 +84,30 @@ div.logo {
 
 .btn {
     font-size: 2.2rem;
+}
+
+form div input, div.cBioCont label, ul li, ul li div, ul li div select, ul li div select option {
+    font-size: 2.5rem;
+}
+
+#noticeCont {
+    font-size: 2.5rem;
+    padding-left: 2.5rem;
+    padding-top: 1rem;
+}
+
+li {
+    margin-top: 1rem;
+}
+
+.hide {
+    display: none;
+}
+
+h4 span#total {
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
