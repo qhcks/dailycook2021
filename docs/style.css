@@ -46,10 +46,10 @@ div.logo {
 }
 
 #datetime {
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
-#notice {
+#notice, #total{
     font-size: 3rem;
 }
 
@@ -110,4 +110,9 @@ h4 span#total {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+}
+
+.footerContent {
+    font-size: 2rem;
+    text-align: center;
 }
